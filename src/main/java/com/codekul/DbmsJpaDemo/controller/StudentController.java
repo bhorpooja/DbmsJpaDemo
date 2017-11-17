@@ -32,16 +32,28 @@ public class StudentController {
         return "data inserted successfully";
     }
 
+    @GetMapping(value = "/getList")
+    public List<Student> getList(){
+        List<Student> list=studentRepo.findAll();
+        return list;
+    }
+
     @GetMapping(value = "/getStudent/{id}")
     public Student getStudent(@PathVariable Integer id){
         Student student=studentRepo.findOne(id);
         return student;
     }
 
-    @GetMapping(value = "/getList")
-    public List<Student> getList(){
-        List<Student> list=studentRepo.findAll();
-        return list;
+    @GetMapping(value = "/getByName/{name}")
+    public Student getByName(@PathVariable String name){
+        Student student=studentRepo.findByName(name);
+        return student;
+    }
+
+    @GetMapping(value = "/getByCity/{city}")
+    public Student getByCity(@PathVariable String city){
+        Student student=studentRepo.findByCity(city);
+        return student;
     }
 
 
