@@ -4,7 +4,10 @@ import com.codekul.DbmsJpaDemo.model.Student;
 import com.codekul.DbmsJpaDemo.repository.StudentRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -54,6 +57,18 @@ public class StudentController {
     public Student getByCity(@PathVariable String city){
         Student student=studentRepo.findByCity(city);
         return student;
+    }
+
+    @PostMapping("/uploadFile/file")
+    public String uploadFile(@RequestParam("file") MultipartFile file){
+
+        File f=new File("/home/pooja/Desktop/Images/"+file.getOriginalFilename());
+        try {
+            file.transferTo(f);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return "File Uploaded Successfully";
     }
 
 

@@ -22,4 +22,6 @@ public interface StudentRepo extends JpaRepository<Student,Integer> {
 
         Student findByCity(String city);
 
+//        List<Student> findById()
+
 }
