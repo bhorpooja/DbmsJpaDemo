@@ -14,6 +14,7 @@ public class Student {
     String name;
     String city;
 
+
     public Integer getId() {
         return id;
     }
@@ -37,4 +38,5 @@ public class Student {
     public void setCity(String city) {
         this.city = city;
     }
+
 }

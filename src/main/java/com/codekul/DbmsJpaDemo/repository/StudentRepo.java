@@ -18,10 +18,22 @@ public interface StudentRepo extends JpaRepository<Student,Integer> {
 
         Student findOne(Integer id);
 
-//        Student findByName(String name);
-
         Student findByCity(String city);
 
         List<Student> findByName(String name);
+
+        List<Student> findByCityAndName(String city,String name);
+
+        List<Student> findByCityOrName(String city,String name);
+
+        List<Student> findByIdLessThan(Integer id);
+
+        List<Student> findByIdGreaterThan(Integer id);
+
+        List<Student> findByIdBefore(Integer id);
+
+        List<Student> findByIdAfter(Integer id);
+
+        List<Student> findByIdBetween(Integer id1,Integer id2);
 
 }
