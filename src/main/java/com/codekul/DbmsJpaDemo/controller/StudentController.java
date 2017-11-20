@@ -47,15 +47,21 @@ public class StudentController {
         return student;
     }
 
-    @GetMapping(value = "/getByName/{name}")
-    public Student getByName(@PathVariable String name){
-        Student student=studentRepo.findByName(name);
-        return student;
-    }
+//    @GetMapping(value = "/getByName/{name}")
+//    public Student getByName(@PathVariable String name){
+//        Student student=studentRepo.findByName(name);
+//        return student;
+//    }
 
     @GetMapping(value = "/getByCity/{city}")
     public Student getByCity(@PathVariable String city){
         Student student=studentRepo.findByCity(city);
+        return student;
+    }
+
+    @GetMapping(value = "/getNameList/{name}")
+    public List<Student> getNameList(@PathVariable String name){
+        List<Student> student=studentRepo.findByName(name);
         return student;
     }
 
