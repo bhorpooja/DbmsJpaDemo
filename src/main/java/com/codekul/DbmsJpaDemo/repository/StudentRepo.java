@@ -36,4 +36,14 @@ public interface StudentRepo extends JpaRepository<Student,Integer> {
 
         List<Student> findByIdBetween(Integer id1,Integer id2);
 
+        List<Student> findByNameLike(String name);
+
+        List<Student> findByNameNotLike(String name);
+
+        List<Student> findByNameStartingWith(String name);
+
+        List<Student> findByNameEndingWith(String name);
+
+        List<Student> findByIdOrderByNameDesc(Integer id);
+
 }

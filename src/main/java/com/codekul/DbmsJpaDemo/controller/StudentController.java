@@ -102,7 +102,35 @@ public class StudentController {
         return student;
     }
 
+    @GetMapping(value = "/getByNameNotLike")
+    public List<Student> getByNameNotLike(@RequestParam("name") String name){
+        List<Student> student=studentRepo.findByNameNotLike(name);
+        return student;
+    }
 
+    @GetMapping(value = "/getByNameLike")
+    public List<Student> getByNameLike(@RequestParam("name") String name){
+        List<Student> student=studentRepo.findByNameLike(name);
+        return student;
+    }
+
+    @GetMapping(value = "/getByNameStartWith")
+    public List<Student> getByNameStartWith(@RequestParam("name") String name){
+        List<Student> student=studentRepo.findByNameStartingWith(name);
+        return student;
+    }
+
+    @GetMapping(value = "/getByNameEndWith")
+    public List<Student> getByNameEndWith(@RequestParam("name") String name){
+        List<Student> student=studentRepo.findByNameEndingWith(name);
+        return student;
+    }
+
+    @GetMapping(value = "/getByNameDesc")
+    public List<Student> getByNameDesc(@RequestParam("id") Integer id){
+        List<Student> student=studentRepo.findByIdOrderByNameDesc(id);
+        return student;
+    }
 
     @PostMapping("/uploadFile/file")
     public String uploadFile(@RequestParam("file") MultipartFile file){
