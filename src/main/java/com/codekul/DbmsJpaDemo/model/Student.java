@@ -1,7 +1,9 @@
 package com.codekul.DbmsJpaDemo.model;
 
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
+
 
 /**
  * Created by pooja on 16/11/17.
@@ -13,7 +15,6 @@ public class Student {
     Integer id;
     String name;
     String city;
-
 
     public Integer getId() {
         return id;

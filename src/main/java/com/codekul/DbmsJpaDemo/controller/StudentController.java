@@ -5,7 +5,6 @@ import com.codekul.DbmsJpaDemo.repository.StudentRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
@@ -144,7 +143,15 @@ public class StudentController {
         return "File Uploaded Successfully";
     }
 
+    @GetMapping("/update/{id}/{name}/{city}")
+    public String updateById(@PathVariable Integer id,@PathVariable String name,@PathVariable String city) {
+        Student student=studentRepo.findOne(id);
+        student.setName(name);
+        student.setCity(city);
+        studentRepo.save(student);
+        return "Student updated successfully";
 
+    }
 
 
 }
