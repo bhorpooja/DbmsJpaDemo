@@ -153,6 +153,12 @@ public class StudentController {
 
     }
 
+    @GetMapping("/deleteStudent/{id}")
+    public String deleteStudent(@PathVariable Integer id){
+        studentRepo.delete(id);
+        return "Student Deleted..";
+    }
+
 
 }
 
