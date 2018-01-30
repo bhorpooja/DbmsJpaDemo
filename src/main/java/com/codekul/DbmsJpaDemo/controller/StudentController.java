@@ -143,7 +143,7 @@ public class StudentController {
         return "File Uploaded Successfully";
     }
 
-    @GetMapping("/update/{id}/{name}/{city}")
+    @PostMapping("/update/{id}/{name}/{city}")
     public String updateById(@PathVariable Integer id,@PathVariable String name,@PathVariable String city) {
         Student student=studentRepo.findOne(id);
         student.setName(name);
@@ -153,7 +153,7 @@ public class StudentController {
 
     }
 
-    @GetMapping("/deleteStudent/{id}")
+    @DeleteMapping("/deleteStudent/{id}")
     public String deleteStudent(@PathVariable Integer id){
         studentRepo.delete(id);
         return "Student Deleted..";
